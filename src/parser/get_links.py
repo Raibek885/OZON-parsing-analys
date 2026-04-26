@@ -2,12 +2,13 @@ import time
 import undetected_chromedriver as uc
 from bs4 import BeautifulSoup
 
-options = uc.ChromeOptions()
-options.add_argument('--blink-settings=imagesEnabled=false')
-driver = uc.Chrome(options=options) 
+
 
 
 def get_links_from_category(url, category_name):
+    options = uc.ChromeOptions()
+    options.add_argument('--blink-settings=imagesEnabled=false')
+    driver = uc.Chrome(options=options, version_main=147)
     
     print(f"🔎 Собираем ссылки: {category_name}")
     all_urls = set()
